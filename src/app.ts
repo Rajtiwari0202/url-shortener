@@ -1,9 +1,10 @@
 import express from "express";
 import healthRouter from "./routes/health.route";
 import { errorHandler } from "./middlewares/error.middleware";
+import urlRouter from "./routes/url.route";
 const app = express();
-
 app.use(express.json());
+app.use("/api", urlRouter);
 app.use("/health", healthRouter);
 app.use(errorHandler);
 export default app;
